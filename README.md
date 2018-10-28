@@ -1,5 +1,5 @@
 # Tensorflow VGG16 and VGG19
-Reference to https://github.com/boyw165/tensorflow-vgg
+Reference to https://github.com/machrisaa/tensorflow-vgg
 
 This is a Tensorflow implemention of VGG 16 and VGG 19 based on [tensorflow-vgg16](https://github.com/ry/tensorflow-vgg16) and [Caffe to Tensorflow](https://github.com/ethereon/caffe-tensorflow). Original Caffe implementation can be found in [here](https://gist.github.com/ksimonyan/211839e770f7b538e2d8) and [here](https://gist.github.com/ksimonyan/3785162f95cd2d5fee77).
 
