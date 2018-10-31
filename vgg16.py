@@ -77,11 +77,7 @@ class Vgg16:
 
         self.fc7 = self.fc_layer(self.relu6, "fc7")
         self.relu7 = tf.nn.relu(self.fc7)
-        # #再加一层全连接层，映射到指定维(256),(self, inputs, in_size, out_size, name):
-        self.fc7_comm = self.add_layer(self.relu7, 4096, 256, "fc7_comm")
-        #assert self.fc7_comm.get_shape().as_list()[1:] == [256]
-        self.relu7_comm = tf.nn.relu(self.fc7_comm)
-
+       
         self.fc8 = self.fc_layer(self.relu7, "fc8")
 
         self.prob = tf.nn.softmax(self.fc8, name="prob")
@@ -132,12 +128,3 @@ class Vgg16:
 
     def get_fc_weight(self, name):
         return tf.constant(self.data_dict[name][0], name="weights")
-
-    #添加自定义全连接层
-    def add_layer(self, inputs, in_size, out_size, name):
-        Weights = tf.random_normal([in_size, out_size])
-        biases = tf.zeros([1, out_size]) + 0.1
-        Wx_plus_b = tf.matmul(inputs, Weights) + biases
-
-        outputs = tf.nn.relu(Wx_plus_b)
-        return outputs
