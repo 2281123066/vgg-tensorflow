@@ -39,7 +39,7 @@ def get_feats():
             batch = img_list.reshape((1, 224, 224, 3))
             feature = sess.run(vgg.fc7, feed_dict={images: batch})#提取fc7层的特征
             feature = np.reshape(feature, [4096])
-			feature /= norm(feature) # 特征归一化
+	    feature /= norm(feature) # 特征归一化
             vgg16_feats[i, :] = feature #每张图片的特征向量为1行
     vgg16_feats = np.save('D:/dataset_code/数据集/flickr+mscoco/flickr30k/data/vgg16_feats', vgg16_feats)
     return vgg16_feats
