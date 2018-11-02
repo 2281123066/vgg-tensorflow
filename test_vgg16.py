@@ -22,4 +22,4 @@ with tf.device('/cpu:0'):
         vgg = vgg16.Vgg16()
         with tf.name_scope("content_vgg"):
             vgg.build(images)
-       feature = sess.run(vgg.fc7, feed_dict=feed_dict)# 需要提取哪一层特征，就在这里做修改，比如fc6，只需要把vgg.fc7修改为vgg.fc6
+        feature = sess.run(vgg.fc7, feed_dict=feed_dict)# 需要提取哪一层特征，就在这里做修改，比如fc6，只需要把vgg.fc7修改为vgg.fc6
